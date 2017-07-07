@@ -1,4 +1,5 @@
 var path = require('path')
+var autoprefixer = require('autoprefixer')
 
 var APP_DIR = path.resolve('src')
 var BUILD_DIR = path.resolve('www')
@@ -26,7 +27,15 @@ module.exports = {
           {
             loader: 'css-loader',
             query: {
-              modules: true
+              modules: true,
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: function () {
+                return [autoprefixer]
+              }
             }
           }
         ]
