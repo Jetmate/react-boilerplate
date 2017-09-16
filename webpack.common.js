@@ -11,15 +11,11 @@ module.exports = {
     filename: 'bundle.js'
   },
 
-  devServer: {
-    hot: true,
-    contentBase: BUILD_DIR
-  },
-
   module: {
     rules: [
       {
         test: /\.css$/,
+        include: APP_DIR,
         use: [
           {
             loader: 'style-loader'
@@ -27,7 +23,7 @@ module.exports = {
           {
             loader: 'css-loader',
             query: {
-              modules: true,
+              modules: true
             }
           },
           {
@@ -41,15 +37,16 @@ module.exports = {
         ]
       },
       {
-        test: /\.js?/,
+        test: /\.jsx?$/,
         include: APP_DIR,
         loader: 'babel-loader',
         options: {
-          'presets' : ['es2015', 'stage-0', 'react']
+          'presets': ['env', 'stage-0', 'react']
         }
       },
-      { 
-        test: /\.(png|woff|woff2|eot|ttf|otf|svg)$/, 
+      {
+        test: /\.(png|woff|woff2|eot|ttf|otf|svg)$/,
+        include: APP_DIR,
         loader: 'url-loader',
         options: {
           limit: 100000
