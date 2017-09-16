@@ -1,23 +1,9 @@
   {
-  "name": "react-boilerplate",
-  "version": "1.0.0",
-  "description": "simple boilerplate for react projects",
-  "main": "index.js",
   "scripts": {
     "test": "webpack-dev-server --inline --hot --config webpack.dev.js",
     "test2": "webpack --watch --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jetmate/react-boilerplate.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Jetmate/react-boilerplate/issues"
-  },
-  "homepage": "https://github.com/Jetmate/react-boilerplate#readme",
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
