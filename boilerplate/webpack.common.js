@@ -4,7 +4,7 @@ var APP_DIR = path.resolve('src')
 var BUILD_DIR = path.resolve('www')
 
 module.exports = {
-  entry: ['babel-polyfill', path.resolve(APP_DIR, 'index.jsx')],
+  entry: ['babel-polyfill', path.resolve(APP_DIR, 'index.js')],
 
   output: {
     path: BUILD_DIR,
