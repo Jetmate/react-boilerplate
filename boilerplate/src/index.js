@@ -1,13 +1,21 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
+import { render } from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
+import App from './App'
 
-import Router from './navigation'
-import './shared/style/globals'
+const renderHot = (Component) =>
+  render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.getElementById('app'),
+  )
 
-ReactDOM.render(
-  <BrowserRouter>
-    <Router />
-  </BrowserRouter>
-  , document.getElementById('root')
-)
+renderHot(App)
+
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    const NextApp = require('./App').default
+    renderHot(NextApp)
+  })
+}
